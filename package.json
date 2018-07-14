@@ -1,0 +1,43 @@
+{
+  "name": "big-numbers",
+  "version": "0.1.0",
+  "description": "JavaScript BugNumbers arithmetic library",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --reporter spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cryptoexplained/jsmath.git"
+  },
+  "keywords": [
+    "big",
+    "number",
+    "integer",
+    "decimal",
+    "bignumber",
+    "biginteger",
+    "bigdecimal",
+    "big-number",
+    "big-integer",
+    "big-decimal",
+    "precision",
+    "arithmetic"
+  ],
+  "author": "CryptoExplained",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cryptoexplained/jsmath/issues"
+  },
+  "homepage": "https://github.com/cryptoexplained/jsmath#readme",
+  "devDependencies": {
+    "chai": "4.1.2",
+    "del": "3.0.0",
+    "gulp": "3.9.1",
+    "gulp-run": "1.7.1",
+    "mocha": "5.2.0",
+    "webpack": "4.12.2",
+    "webpack-cli": "3.0.8",
+    "uglifyjs-webpack-plugin": "^1.2.7"
+  }
+}

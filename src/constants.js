@@ -1,0 +1,21 @@
+'use strict';
+
+module.exports = {
+
+    POSITIVE: 1,
+    NEGATIVE: -1,
+
+    PLUS: '+',
+    MINUS: '-',
+
+    ROUNDING_MODE_UP: 1,
+    ROUNDING_MODE_DOWN: 2,
+    ROUNDING_MODE_CEIL: 3,
+    ROUNDING_MODE_FLOOR: 4,
+    ROUNDING_MODE_HALF_UP: 5,
+    ROUNDING_MODE_HALF_DOWN: 6,
+    ROUNDING_MODE_HALF_EVEN: 7,
+
+    DEFAULT_ROUNDING_MODE: 5,
+    DEFAULT_PRECISION: 20
+};
