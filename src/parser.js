@@ -1,6 +1,7 @@
 'use strict';
 
 var Constants = require('./constants');
+var ConfigurationResolver = require('./configuration-resolver');
 var BigNumber = require('./big-number');
 
 module.exports = function(defaultConfig) {
@@ -10,7 +11,7 @@ module.exports = function(defaultConfig) {
     var _config = defaultConfig;
 
     this.parse = function(value, config) {
-        var configToUse = config ? config : _config;
+        var configToUse = ConfigurationResolver.resolve(_config, config);
         if((typeof value) === 'string') {
             return parseStringWithExponent(value, configToUse);
         } else if((typeof value) === 'number') {
@@ -42,8 +43,8 @@ function parseStringWithExponent(input, config) {
         var mantissa = parseString(parts[0], config);
         var exponent = parseInt(parts[1], 10);
         var scaleAfterShift = mantissa.getScale() - exponent;
-        var precisionToUse = scaleAfterShift > Constants.DEFAULT_PRECISION ? scaleAfterShift : Constants.DEFAULT_PRECISION;
-        return mantissa.shift(exponent, precisionToUse, Constants.DEFAULT_ROUNDING_MODE);
+        var precisionToUse = scaleAfterShift > config.precision ? scaleAfterShift : config.precision;
+        return mantissa.shift(exponent, config.precision, config.roundingMode);
     }
 }
 
@@ -82,8 +83,8 @@ function parseString(input, config) {
             digits.push(digit);
         }
     }
-    var precisionToUse = scale > Constants.DEFAULT_PRECISION ? scale : Constants.DEFAULT_PRECISION;
-    var result = new BigNumber(sign, digits, scale, precisionToUse, Constants.DEFAULT_ROUNDING_MODE);
+    var precisionToUse = scale > config.precision ? scale : config.precision;
+    var result = new BigNumber(sign, digits, scale, precisionToUse, config.roundingMode);
     return result;
 }
 

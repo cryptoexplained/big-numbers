@@ -24,6 +24,8 @@ var E = new BigNumber(Constants.POSITIVE, [7,2,5,3,1,7,4,7,8,2,0,6,3,5,3,2,5,4,0
 
 module.exports = {
 
+    E: E,
+
     exp: function(pow, precision, roundingMode) {
         var invert = false;
         if(pow.isZero()) {

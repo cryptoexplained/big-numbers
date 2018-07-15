@@ -19,8 +19,8 @@ module.exports = {
         extensions: [".js"]
     },
     optimization: {
-        minimizer: [
-            /*new UglifyJsPlugin({
+        minimizer: PROD ? [
+            new UglifyJsPlugin({
                 cache: true,
                 parallel: true,
                 uglifyOptions: {
@@ -29,12 +29,7 @@ module.exports = {
                     mangle: true
                 },
                 sourceMap: true
-            })*/
-        ]
+            })
+        ] : []
     }
-    //plugins: PROD ? [
-    //    new webpack.optimize.UglifyJsPlugin({
-    //        compress: { warnings: false }
-    //    })
-    //] : []
 };

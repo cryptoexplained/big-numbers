@@ -16,28 +16,22 @@ gulp.task('clean', function () {
 
 gulp.task('dist', ['clean'], function () {
 
-    var cmd = new run.Command('webpack', { usePowerShell: true, silent: false });
+    var cmdDev = new run.Command('webpack --mode production', { usePowerShell: true, silent: false });
+    var cmdProd = new run.Command('webpack --mode production', { usePowerShell: true, silent: false });
 
-    //web non-prod
     process.env.USE_ENV = 'web';
     process.env.NODE_ENV = 'dev';
-    cmd.exec();
+    cmdDev.exec();
 
-    //web prod
     process.env.USE_ENV = 'web';
     process.env.NODE_ENV = 'production';
-    cmd.exec();
+    cmdProd.exec();
 
-    //node non-prod
     process.env.USE_ENV = 'node';
     process.env.NODE_ENV = 'dev';
-    cmd.exec();
+    cmdDev.exec();
 
-    //node prod
     process.env.USE_ENV = 'node';
     process.env.NODE_ENV = 'production';
-    cmd.exec();
-
-    //gulp.src([`${paths.src}/big-decimal.d.ts`])
-    //    .pipe(gulp.dest(`${paths.dist}/node`));
+    cmdProd.exec();
 });

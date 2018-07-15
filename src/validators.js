@@ -50,14 +50,35 @@ module.exports = {
     },
 
     validateRoundingMode: function(input) {
-        if(input != Constants.ROUNDING_MODE_UP
-                && input != Constants.ROUNDING_MODE_DOWN
-                && input != Constants.ROUNDING_MODE_CEIL
-                && input != Constants.ROUNDING_MODE_FLOOR
-                && input != Constants.ROUNDING_MODE_HALF_UP
-                && input != Constants.ROUNDING_MODE_HALF_DOWN
-                && input != Constants.ROUNDING_MODE_HALF_EVEN) {
+        if(input !== Constants.ROUNDING_MODE_UP
+                && input !== Constants.ROUNDING_MODE_DOWN
+                && input !== Constants.ROUNDING_MODE_CEIL
+                && input !== Constants.ROUNDING_MODE_FLOOR
+                && input !== Constants.ROUNDING_MODE_HALF_UP
+                && input !== Constants.ROUNDING_MODE_HALF_DOWN
+                && input !== Constants.ROUNDING_MODE_HALF_EVEN) {
             throw 'Illegal rounding mode';
+        }
+    },
+
+    validateDecimalSeparator: function(input) {
+        if(!input) {
+            throw 'Decimal separator should be defined';
+        }
+        if((typeof input) !== 'string') {
+            throw 'Decimal separator should be string type';
+        }
+        if(input.length <= 0) {
+            throw 'Decimal separator should nit be blank';
+        }
+    },
+
+    validateThousandsSeparator: function(input) {
+        if(input === undefined || input === null) {
+            return;
+        }
+        if((typeof input) !== 'string') {
+            throw 'Decimal separator should be string type';
         }
     }
 };
