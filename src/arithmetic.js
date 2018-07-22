@@ -61,6 +61,10 @@ module.exports = {
         return new BigNumber(number.getSign(), number.getValue(), number.getScale(), precision, roundingMode);
     },
 
+    withRoundingMode: function(number, roundingMode) {
+        return new BigNumber(number.getSign(), number.getValue(), number.getScale(), number.getPrecision(), roundingMode);
+    },
+
     shift: function(number, shift, precision, roundingMode) {
         var newScale = number.getScale() - shift;
         return new BigNumber(number.getSign(), number.getValue(), newScale, precision, roundingMode);

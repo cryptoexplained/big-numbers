@@ -1,6 +1,7 @@
 'use strict';
 
 var expect = require('chai').expect;
+var Constants = require('../src/constants');
 var NumberUtils = require('../src/number-utils');
 var Parser = require('../src/parser');
 
@@ -11,7 +12,9 @@ describe('NumberUtils Specification', function() {
     beforeEach(function() {
         parser = new Parser({
             decimalSeparator: '.',
-            thousandsSeparator: undefined
+            thousandsSeparator: undefined,
+            precision: 20,
+            roundingMode: Constants.ROUNDING_MODE_HALF_UP
         });
     });
 

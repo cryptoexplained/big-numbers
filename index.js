@@ -13,6 +13,7 @@ module.exports = function(config) {
     var _config = ConfigurationResolver.resolve(ConfigurationResolver.getSystem(), config);
 
     var _parser = new Parser(_config);
+    var _formatter = new Formatter(_config);
 
     this.getConfiguration = function() {
         return _config;
@@ -21,6 +22,10 @@ module.exports = function(config) {
     this.of = function(input, config) {
         return _parser.parse(input, ConfigurationResolver.resolve(_config, config));
     };
+
+    this.format = function(input, config) {
+        return _formatter.format(input, ConfigurationResolver.resolve(_config, config));
+    }
 
     this.formatter = function(config) {
         return new Formatter(ConfigurationResolver.resolve(_config, config));

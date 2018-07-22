@@ -97,24 +97,28 @@ module.exports = function(sign, value, scale, precision, roundingMode) {
     };
 
     this.add = function(summable, precision, roundingMode) {
+        validatePrecisionAndRoundingModeIfProvided(precision, roundingMode);
         var precisionToUse = precision ? precision : _precision;
         var roundingModeToUse = roundingMode ? roundingMode : _roundingMode;
         return Arithmetic.add(this, summable, precisionToUse, roundingModeToUse);
     };
 
     this.subtract = function(subtrahend, precision, roundingMode) {
+        validatePrecisionAndRoundingModeIfProvided(precision, roundingMode);
         var precisionToUse = precision ? precision : _precision;
         var roundingModeToUse = roundingMode ? roundingMode : _roundingMode;
         return Arithmetic.subtract(this, subtrahend, precisionToUse, roundingModeToUse);
     };
 
     this.multiply = function(multiplier, precision, roundingMode) {
+        validatePrecisionAndRoundingModeIfProvided(precision, roundingMode);
         var precisionToUse = precision ? precision : _precision;
         var roundingModeToUse = roundingMode ? roundingMode : _roundingMode;
         return Arithmetic.multiply(this, multiplier, precisionToUse, roundingModeToUse);
     };
 
     this.divide = function(divider, precision, roundingMode) {
+        validatePrecisionAndRoundingModeIfProvided(precision, roundingMode);
         var precisionToUse = precision ? precision : _precision;
         var roundingModeToUse = roundingMode ? roundingMode : _roundingMode;
         return Arithmetic.divide(this, divider, precisionToUse, roundingModeToUse);
@@ -133,9 +137,10 @@ module.exports = function(sign, value, scale, precision, roundingMode) {
     };
 
     this.shift = function(shift, precision, roundingMode) {
-         var precisionToUse = precision ? precision : _precision;
-         var roundingModeToUse = roundingMode ? roundingMode : _roundingMode;
-         return Arithmetic.shift(this, shift, precisionToUse, roundingModeToUse);
+        validatePrecisionAndRoundingModeIfProvided(precision, roundingMode);
+        var precisionToUse = precision ? precision : _precision;
+        var roundingModeToUse = roundingMode ? roundingMode : _roundingMode;
+        return Arithmetic.shift(this, shift, precisionToUse, roundingModeToUse);
     };
 
     this.equals = function(other) {
@@ -179,35 +184,49 @@ module.exports = function(sign, value, scale, precision, roundingMode) {
     };
 
     this.toPrecision = function(precision, roundingMode) {
+        Validators.validatePrecision(precision);
+        if(roundingMode) {
+            Validators.validateRoundingMode(roundingMode);
+        }
         var roundingModeToUse = roundingMode ? roundingMode : this.getRoundingMode();
         return Arithmetic.toPrecision(this, precision, roundingModeToUse);
     };
 
+    this.withRoundingMode = function(roundingMode) {
+        Validators.validateRoundingMode(roundingMode);
+        return Arithmetic.withRoundingMode(this, roundingMode);
+    };
+
     this.exp = function(precision, roundingMode) {
+        validatePrecisionAndRoundingModeIfProvided(precision, roundingMode);
         var precisionToUse = precision ? precision : _precision;
         var roundingModeToUse = roundingMode ? roundingMode : _roundingMode;
         return Functions.exp(this, precisionToUse, roundingModeToUse);
     };
 
     this.log = function(precision, roundingMode) {
+        validatePrecisionAndRoundingModeIfProvided(precision, roundingMode);
         var precisionToUse = precision ? precision : _precision;
         var roundingModeToUse = roundingMode ? roundingMode : _roundingMode;
         return Functions.log(this, precisionToUse, roundingModeToUse);
     };
 
     this.lg = function(precision, roundingMode) {
+        validatePrecisionAndRoundingModeIfProvided(precision, roundingMode);
         var precisionToUse = precision ? precision : _precision;
         var roundingModeToUse = roundingMode ? roundingMode : _roundingMode;
         return Functions.lg(this, precisionToUse, roundingModeToUse);
     };
 
     this.pow = function(power, precision, roundingMode) {
+        validatePrecisionAndRoundingModeIfProvided(precision, roundingMode);
         var precisionToUse = precision ? precision : _precision;
         var roundingModeToUse = roundingMode ? roundingMode : _roundingMode;
         return Functions.pow(this, power, precisionToUse, roundingModeToUse);
     };
 
     this.sqrt = function(precision, roundingMode) {
+        validatePrecisionAndRoundingModeIfProvided(precision, roundingMode);
         var precisionToUse = precision ? precision : _precision;
         var roundingModeToUse = roundingMode ? roundingMode : _roundingMode;
         return Functions.sqrt(power, precisionToUse, roundingModeToUse);
@@ -231,3 +250,12 @@ module.exports = function(sign, value, scale, precision, roundingMode) {
       "}";
     };
 };
+
+function validatePrecisionAndRoundingModeIfProvided(precision, roundingMode) {
+    if(precision) {
+        Validators.validatePrecision(precision);
+    }
+    if(roundingMode) {
+        Validators.validateRoundingMode(roundingMode);
+    }
+}

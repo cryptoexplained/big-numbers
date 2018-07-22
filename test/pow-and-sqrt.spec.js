@@ -12,7 +12,9 @@ describe('Pow and Sqrt Specification', function() {
     var formatter;
     var defaultConfig = {
         decimalSeparator: '.',
-        thousandsSeparator: undefined
+        thousandsSeparator: undefined,
+        precision: 20,
+        roundingMode: Constants.ROUNDING_MODE_HALF_UP
     };
 
     beforeEach(function() {

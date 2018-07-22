@@ -1,6 +1,7 @@
 'use strict';
 
 var expect = require('chai').expect;
+var Constants = require('../src/constants');
 var Parser = require('../src/parser');
 
 describe('BigNumber Specification', function() {
@@ -10,7 +11,9 @@ describe('BigNumber Specification', function() {
     beforeEach(function() {
         parser = new Parser({
             decimalSeparator: '.',
-            thousandsSeparator: undefined
+            thousandsSeparator: undefined,
+            precision: 20,
+            roundingMode: Constants.ROUNDING_MODE_HALF_UP
         });
     });
 
@@ -18,7 +21,7 @@ describe('BigNumber Specification', function() {
         var number = parser.parse("-543.21");
         var result = number.abs();
         console.log("Result: " + JSON.stringify(result));
-        expect(result.getSign()).to.equal(1);
+        expect(result.getSign()).to.equal(Constants.POSITIVE);
         expect(result.getValue()).to.eql([1, 2, 3, 4, 5]);
         expect(result.getScale()).to.equal(2);
     });

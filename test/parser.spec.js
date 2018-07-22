@@ -11,7 +11,9 @@ describe('Parser Specification', function() {
     beforeEach(function() {
         parser = new Parser({
             decimalSeparator: '.',
-            thousandsSeparator: undefined
+            thousandsSeparator: undefined,
+            precision: 20,
+            roundingMode: Constants.ROUNDING_MODE_HALF_UP
         });
     });
 

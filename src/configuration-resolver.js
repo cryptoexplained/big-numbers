@@ -15,11 +15,21 @@ module.exports = {
         if(!secondary) {
             return primary;
         }
+        var mergedFormatting = {};
+        if(primary.formatting && secondary.formatting) {
+            mergedFormatting.minAfterDot = resolveProperty(primary.formatting, secondary.formatting, 'minAfterDot'),
+            mergedFormatting.maxAfterDot = resolveProperty(primary.formatting, secondary.formatting, 'maxAfterDot')
+        } else if(primary.formatting) {
+            mergedFormatting = primary.formatting;
+        } else if(secondary.formatting) {
+            mergedFormatting = secondary.formatting;
+        }
         var merged = {
-            decimalSeparator: secondary.decimalSeparator ? secondary.decimalSeparator : primary.decimalSeparator,
-            thousandsSeparator: secondary.thousandsSeparator ? secondary.thousandsSeparator : primary.thousandsSeparator,
-            precision: secondary.precision ? secondary.precision : primary.precision,
-            roundingMode: secondary.roundingMode ? secondary.roundingMode : primary.roundingMode
+            decimalSeparator: resolveProperty(primary, secondary, 'decimalSeparator'),
+            thousandsSeparator: resolveProperty(primary, secondary, 'thousandsSeparator'),
+            precision: resolveProperty(primary, secondary, 'precision'),
+            roundingMode: resolveProperty(primary, secondary, 'roundingMode'),
+            formatting: mergedFormatting
         };
         Validators.validatePrecision(merged.precision);
         Validators.validateRoundingMode(merged.roundingMode);
@@ -28,8 +38,13 @@ module.exports = {
         if(merged.decimalSeparator == merged.thousandsSeparator) {
             throw 'Decimal and thousands separators should have different values';
         }
+        Validators.validateConfigurationFormatting(mergedFormatting);
         return merged;
     }
+}
+
+function resolveProperty(first, second, propertyName) {
+    return second.hasOwnProperty(propertyName) ? second[propertyName] : first[propertyName];
 }
 
 function resolveSeparatorsFromString(input) {
@@ -37,6 +52,10 @@ function resolveSeparatorsFromString(input) {
         decimalSeparator: input.length == 7 ? input.charAt(5) : input.charAt(4),
         thousandsSeparator: input.length == 7 ? input.charAt(1) : undefined,
         precision: Constants.DEFAULT_PRECISION,
-        roundingMode: Constants.DEFAULT_ROUNDING_MODE
+        roundingMode: Constants.DEFAULT_ROUNDING_MODE,
+        formatting: {
+            minAfterDot: undefined,
+            maxAfterDot: undefined
+        }
     };
 }

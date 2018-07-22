@@ -80,5 +80,21 @@ module.exports = {
         if((typeof input) !== 'string') {
             throw 'Decimal separator should be string type';
         }
+    },
+
+    validateConfigurationFormatting: function(input) {
+        if(input.minAfterDot !== undefined && input.minAfterDot !== null && (typeof input.minAfterDot) !== 'number'
+                || input.minAfterDot < 0) {
+            throw 'Minimal number of digits after decimal separator should be positive number';
+        }
+        if(input.maxAfterDot !== undefined && input.maxAfterDot !== null && (typeof input.maxAfterDot) !== 'number'
+                || input.maxAfterDot < 0) {
+            throw 'Maximal number of digits after decimal separator should be positive number';
+        }
+        if(input.minAfterDot && input.maxAfterDot) {
+            if(input.minAfterDot > input.maxAfterDot) {
+                throw 'Minimal number of digits after decimal separator should be greater or equals to maximal';
+            }
+        }
     }
 };
