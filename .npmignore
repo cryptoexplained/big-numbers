@@ -1,0 +1,11 @@
+# Ignoring sources, tools and tests
+src
+test
+node_modules
+.idea
+.gitignore
+.travis.yml
+gulpfile.js
+index.js
+package-lock.json
+webpack.config.js

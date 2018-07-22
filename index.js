@@ -26,10 +26,6 @@ module.exports = function(config) {
     this.format = function(input, config) {
         return _formatter.format(input, ConfigurationResolver.resolve(_config, config));
     }
-
-    this.formatter = function(config) {
-        return new Formatter(ConfigurationResolver.resolve(_config, config));
-    };
 };
 
 module.exports.E = Functions.E;
