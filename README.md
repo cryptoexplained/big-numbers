@@ -6,13 +6,6 @@ BigNumbers is opensource JavaScript library under MIT license for precision arit
 
 npm install --save big-numbers
 
-## Resources
-
-* <a href="http://bignumbers.tech">Home Page</a>
-* <a href="https://github.com/cryptoexplained/big-numbers">Source Code</a>
-* <a href="https://www.npmjs.com/settings/bignumber/packages">Npm Package</a>
-
-
 ## Quick Start
 
 * <a href="http://bignumbers.tech/tutorials/java-script">JavaScript tutorial</a> - explains how to use BigNumbers directly in your html pages
@@ -27,3 +20,9 @@ npm install --save big-numbers
 * <a href="http://bignumbers.tech/documentation/arithmetic-operations">Arithmetic Operations</a>
 * <a href="http://bignumbers.tech/documentation/logic-operations">Logic Operations</a>
 * <a href="http://bignumbers.tech/documentation/formatting">Formatting</a>
+
+## Resources
+
+* <a href="http://bignumbers.tech">Home Page</a>
+* <a href="https://github.com/cryptoexplained/big-numbers">Source Code</a>
+* <a href="https://www.npmjs.com/settings/bignumber/packages">Npm Package</a>
