@@ -20,10 +20,10 @@ npm install --save big-numbers
 
 ## Documentation
 
-* <a routerLink="/documentation/configuration">Configuration</a>
-* <a routerLink="/docs/tutorials/nodejs">Creating new BigNumber</a>
-* <a routerLink="/documentation/precision">Precision</a>
-* <a routerLink="/documentation/rounding-mode">Rounding Mode</a>
-* <a routerLink="/docs/tutorials/angular">Arithmetic Operations</a>
-* <a routerLink="/docs/tutorials/angular">Logic Operations</a>
-* <a routerLink="/docs/tutorials/angular">Formatting</a>
+* <a href="http://bignumbers.tech/documentation/configuration">Configuration</a>
+* <a href="http://bignumbers.tech/documentation/parsing">Creating new BigNumber</a>
+* <a href="http://bignumbers.tech/documentation/precision">Precision</a>
+* <a href="http://bignumbers.tech/documentation/rounding-mode">Rounding Mode</a>
+* <a href="http://bignumbers.tech/documentation/arithmetic-operations">Arithmetic Operations</a>
+* <a href="http://bignumbers.tech/documentation/logic-operations">Logic Operations</a>
+* <a href="http://bignumbers.tech/documentation/formatting">Formatting</a>
