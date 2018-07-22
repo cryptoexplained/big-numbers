@@ -25,4 +25,4 @@ npm install --save big-numbers
 
 * <a href="http://bignumbers.tech">Home Page</a>
 * <a href="https://github.com/cryptoexplained/big-numbers">Source Code</a>
-* <a href="https://www.npmjs.com/settings/bignumber/packages">Npm Package</a>
+* <a href="https://www.npmjs.com/package/big-numbers">Npm Package</a>
