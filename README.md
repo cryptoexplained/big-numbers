@@ -1,10 +1,12 @@
 # BigNumbers
 
-BigNumbers is opensource JavaScript library under MIT license for precision arithmetic calculations
+BigNumbers is open source JavaScript library under MIT license for precision arithmetic calculations
 
 ## Installation
 
+```
 npm install --save big-numbers
+```
 
 ## Quick Start
 
