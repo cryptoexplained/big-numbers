@@ -1,6 +1,6 @@
 {
   "name": "big-numbers",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "JavaScript BugNumbers arithmetic library",
   "main": "./dist/node/big-numbers.min.js",
   "scripts": {
