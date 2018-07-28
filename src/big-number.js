@@ -143,6 +143,10 @@ module.exports = function(sign, value, scale, precision, roundingMode) {
         return Arithmetic.shift(this, shift, precisionToUse, roundingModeToUse);
     };
 
+    this.compareTo = function(other) {
+        return Comparator.compare(this, other);
+    };
+
     this.equals = function(other) {
         return Comparator.compare(this, other) == 0;
     };
@@ -230,6 +234,10 @@ module.exports = function(sign, value, scale, precision, roundingMode) {
         var precisionToUse = precision ? precision : _precision;
         var roundingModeToUse = roundingMode ? roundingMode : _roundingMode;
         return Functions.sqrt(power, precisionToUse, roundingModeToUse);
+    };
+
+    this.clone = function() {
+        return arithmetic.clone(this);
     };
 
     this.toNumber = function() {

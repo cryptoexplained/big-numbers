@@ -85,6 +85,10 @@ module.exports = {
             integerPart.push(value[i]);
         }
         return new BigNumber(number.getSign(), integerPart, 0, number.getPrecision(), number.getRoundingMode());
+    },
+
+    clone: function(number) {
+        return new BigNumber(number.getSign(), number.getValue(), number.getScale(), number.getPrecision(), number.getRoundingMode());
     }
 };
 
