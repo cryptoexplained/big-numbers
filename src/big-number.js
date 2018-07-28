@@ -236,7 +236,7 @@ module.exports = function(sign, value, scale, precision, roundingMode) {
         return Functions.sqrt(power, precisionToUse, roundingModeToUse);
     };
 
-    this.clone() {
+    this.clone = function() {
         return arithmetic.clone(this);
     };
 
