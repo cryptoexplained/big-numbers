@@ -11,6 +11,7 @@ npm install --save big-numbers
 ## Quick Start
 
 * <a href="http://bignumbers.tech/tutorials/java-script">JavaScript tutorial</a> - explains how to use BigNumbers directly in your html pages
+* <a href="http://bignumbers.tech/tutorials/angular">Angular tutorial</a> - explains how to use BigNumbers in Angular applications
 * <a href="http://bignumbers.tech/tutorials/nodejs">NodeJS tutorial</a> - explains how to use BigNumbers as NodeJS module
 
 ## Documentation
@@ -20,6 +21,7 @@ npm install --save big-numbers
 * <a href="http://bignumbers.tech/documentation/precision">Precision</a>
 * <a href="http://bignumbers.tech/documentation/rounding-mode">Rounding Mode</a>
 * <a href="http://bignumbers.tech/documentation/arithmetic-operations">Arithmetic Operations</a>
+* <a href="http://bignumbers.tech/documentation/trigonometric-functions">Trigonometric Functions</a>
 * <a href="http://bignumbers.tech/documentation/logic-operations">Logic Operations</a>
 * <a href="http://bignumbers.tech/documentation/formatting">Formatting</a>
 

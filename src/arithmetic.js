@@ -42,6 +42,9 @@ module.exports = {
 
     divide: function(first, second, precision, roundingMode) {
         second = CalculationUtils.toBigNumber(second);
+        if(second.isZero()) {
+            throw 'Divide by zero';
+        }
         var sign = (first.getSign() === second.getSign()) ? Constants.POSITIVE : Constants.NEGATIVE;
         return divideAbsoluteValues(sign, first, second, precision, roundingMode);
     },
