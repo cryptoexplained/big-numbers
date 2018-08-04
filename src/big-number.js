@@ -255,14 +255,14 @@ module.exports = function(sign, value, scale, precision, roundingMode) {
         validatePrecisionAndRoundingModeIfProvided(precision, roundingMode);
         var precisionToUse = precision ? precision : _precision;
         var roundingModeToUse = roundingMode ? roundingMode : _roundingMode;
-        return Trigonometry.sin(this, precisionToUse, roundingModeToUse);
+        return Trigonometry.tan(this, precisionToUse, roundingModeToUse);
     };
 
     this.ctan = function(precision, roundingMode) {
         validatePrecisionAndRoundingModeIfProvided(precision, roundingMode);
         var precisionToUse = precision ? precision : _precision;
         var roundingModeToUse = roundingMode ? roundingMode : _roundingMode;
-        return Trigonometry.sin(this, precisionToUse, roundingModeToUse);
+        return Trigonometry.ctan(this, precisionToUse, roundingModeToUse);
     };
 
     this.clone = function() {
