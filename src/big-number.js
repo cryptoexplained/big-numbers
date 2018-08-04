@@ -17,6 +17,7 @@ module.exports = function(sign, value, scale, precision, roundingMode) {
 
     var Arithmetic = require('./arithmetic');
     var Functions = require('./functions');
+    var Trigonometry = require('./trigonometry');
 
     var normalizedScale = scale;
     while(normalizedScale < 0) {
@@ -236,6 +237,34 @@ module.exports = function(sign, value, scale, precision, roundingMode) {
         return Functions.sqrt(power, precisionToUse, roundingModeToUse);
     };
 
+    this.cos = function(precision, roundingMode) {
+        validatePrecisionAndRoundingModeIfProvided(precision, roundingMode);
+        var precisionToUse = precision ? precision : _precision;
+        var roundingModeToUse = roundingMode ? roundingMode : _roundingMode;
+        return Trigonometry.cos(this, precisionToUse, roundingModeToUse);
+    };
+
+    this.sin = function(precision, roundingMode) {
+        validatePrecisionAndRoundingModeIfProvided(precision, roundingMode);
+        var precisionToUse = precision ? precision : _precision;
+        var roundingModeToUse = roundingMode ? roundingMode : _roundingMode;
+        return Trigonometry.sin(this, precisionToUse, roundingModeToUse);
+    };
+
+    this.tan = function(precision, roundingMode) {
+        validatePrecisionAndRoundingModeIfProvided(precision, roundingMode);
+        var precisionToUse = precision ? precision : _precision;
+        var roundingModeToUse = roundingMode ? roundingMode : _roundingMode;
+        return Trigonometry.tan(this, precisionToUse, roundingModeToUse);
+    };
+
+    this.ctan = function(precision, roundingMode) {
+        validatePrecisionAndRoundingModeIfProvided(precision, roundingMode);
+        var precisionToUse = precision ? precision : _precision;
+        var roundingModeToUse = roundingMode ? roundingMode : _roundingMode;
+        return Trigonometry.ctan(this, precisionToUse, roundingModeToUse);
+    };
+
     this.clone = function() {
         return arithmetic.clone(this);
     };
@@ -245,7 +274,7 @@ module.exports = function(sign, value, scale, precision, roundingMode) {
         for(var i = _value.length - 1; i >= 0; i--) {
             number += value[i] * Math.pow(10, i - _scale);
         }
-        return number;
+        return number * _sign;
     };
 
     this.toJSON = function() {
