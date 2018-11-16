@@ -182,7 +182,7 @@ function divideAbsoluteValues(sign, first, second, precision, roundingMode) {
     var leftover = first;
     var calculationPrecision = precision + 3;
     var accumulator = new BigNumber(Constants.POSITIVE, [0], 0, calculationPrecision, roundingMode);
-    for(var i = 0; i < 500; i++) {
+    for(var i = 0; i < precision; i++) {
         var quotient = getIterationQuotient(leftover, second, calculationPrecision, roundingMode);
         var subtract = multiplyAbsoluteValues(Constants.POSITIVE, second, quotient, calculationPrecision, Constants.ROUNDING_MODE_DOWN);
         leftover = subtractAbsoluteValues(Constants.POSITIVE, leftover, subtract, calculationPrecision, roundingMode);
