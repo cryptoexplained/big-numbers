@@ -118,4 +118,12 @@ describe('Arithmetic Specification', function() {
         expect(result.getScale()).to.equal(2);
     });
 
+    it('should divide in correct precision, 10000 if needed', function() {
+        var first = parser.parse("1");
+        var second = parser.parse("3");
+        var result = Arithmetic.divide(first, second, 10000, Constants.ROUNDING_MODE_HALF_UP);
+        console.log("Division result: " + JSON.stringify(result));
+        expect(result.getValue().length).to.equal(10000);
+    });
+
 });
